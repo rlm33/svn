@@ -276,7 +276,7 @@
     <Content Include="Images\anuncio3.jpg" />
     <Content Include="Images\banner.jpg" />
     <Content Include="Images\carrito.gif" />
-    <Content Include="Images\removecarrito.gif />
+    <Content Include="Images\removecarrito.gif" />
     <Content Include="Images\banner2.jpg" />
     <Content Include="Images\Filosofia-3.jpg" />
     <Content Include="Images\imageNature7.jpg" />
