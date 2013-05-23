@@ -927,6 +927,7 @@
     <Content Include="Views\Shared\_NewBookPartial.cshtml" />
     <Content Include="Views\Shared\_UsedBookPartial.cshtml" />
     <Content Include="Views\Administration\TableDistributorsOrders.cshtml" />
+    <Content Include="Views\Administration\TableCustomerOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
