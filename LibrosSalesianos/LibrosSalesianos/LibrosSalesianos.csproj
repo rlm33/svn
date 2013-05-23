@@ -282,6 +282,7 @@
     <Content Include="Images\list_metro.png" />
     <Content Include="Images\ordenar-ahora.png" />
     <Content Include="Images\portada kiwi.jpg" />
+    <Content Include="Images\removecarrito.gif" />
     <Content Include="jquery.jtable.js" />
     <Content Include="jquery.jtable.min.js" />
     <Content Include="Scripts\flyToCart.js" />
