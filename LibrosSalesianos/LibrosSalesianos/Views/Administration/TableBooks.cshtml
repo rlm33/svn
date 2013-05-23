@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Admin - Libros";
+}
+
+<h3>Tabla de Libros</h3>
+<div id="tableBooks" style="margin-left:19%; margin-right:19%"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tableBooks').jtable({
+            title: 'Libros Padre',
+            paging: false, //Enable paging
+            //pageSize: 10, //Set page size (default: 10)
+            sorting: false, //Enable sorting
+            //defaultSorting: 'Name ASC', //Set default sorting
+            actions: {
+                listAction: '/Administration/BookList',
+                createAction: '/Administration/BookCreate',
+                updateAction: '/Administration/BookUpdate',
+                deleteAction: '/Administration/BookDelete'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                IdBook: {
+                    title: 'ISBN/EAN13'
+                },
+                SubjectId: {
+                    title: 'Asignatura',
+                    options: '/Administration/BookSubjectOptions'
+                },
+                BusinessId: {
+                    title: 'Editorial',
+                    options: '/Administration/BookPublisherOptions'
+                },
+                Name: {
+                    title: 'Nombre'
+                },
+                Description: {
+                    title: 'Descripción'
+                },
+                Picture: {
+                    title: 'Imagen'
+                }
+            }
+        });
+        $('#tableBooks').jtable('load');
+    });
+</script>

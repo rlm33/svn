@@ -1,0 +1,22 @@
+﻿[{
+    "id": "1",
+    "name": "Hot Chocolate",
+    "type": "Chocolate Beverage",
+    "calories": "370",
+    "totalfat": "16g",
+    "protein": "14g"
+}, {
+    "id": "2",
+    "name": "Peppermint Hot Chocolate",
+    "type": "Chocolate Beverage",
+    "calories": "440",
+    "totalfat": "16g",
+    "protein": "13g"
+}, {
+    "id": "3",
+    "name": "Salted Caramel Hot Chocolate",
+    "type": "Chocolate Beverage",
+    "calories": "450",
+    "totalfat": "16g",
+    "protein": "13g"
+}]

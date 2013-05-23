@@ -1,0 +1,30 @@
+﻿@model ClasesAlicanTeam.EN.ENNewBook
+@{
+    ViewBag.Title = "_BookPartial";
+    var book = Model;
+}
+
+<div id="Book-@book.IdBook">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>
+                    <a><img src ="@book.Picture" /></a>
+                </td>
+                <td rowspan="2">
+                    <div> @Html.Label("name",book.Name) </div>
+                    <div> @Html.Label("desc",book.Description) </div>
+                    <div class="isbn">@Html.Label("isbn",book.IdBook)</div>
+                </td>
+                <td>
+                    @book.Price €
+                </td>
+                <td>
+                    <div class="linkbutton">
+                        @Ajax.ActionLink("Al carrito!", "AddToCart", "Shopping", new { controller = "Shopping", isbn = book.IdBook, des = book.Description, img = book.Picture }, new AjaxOptions { HttpMethod = "POST", OnComplete = "function(){return false;}" },new{@class="addcart"})
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,30 @@
+﻿@model LibrosSalesianos.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Administrar cuenta";
+}
+
+ <div style="margin-left:19%"> 
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<p class="message-success">@ViewBag.StatusMessage</p>
+
+<p>Ha iniciado sesión como <strong>@User.Identity.Name</strong>.</p>
+     </div>
+@if (ViewBag.HasLocalPassword)
+{   
+    @Html.Partial("_ChangePasswordPartial")
+    
+}
+else
+{  
+    @Html.Partial("_SetPasswordPartial")
+    
+}
+     
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "AnnounceForm";
+}
+
+<h3>AnnounceForm</h3>
+<div style="margin-left:19%">
+    @Html.Label("Titulo")
+    @Html.TextBox("Titl")
+
+    @Html.Label("Nombre")
+    @Html.TextBox("Name")
+
+    @Html.Label("Correo electornico")
+    @Html.TextBox("Email")
+
+    @Html.Label("Telefono")
+    @Html.TextBox("Tlf")
+
+    @Html.Label("Descripcion del libro")
+    @Html.TextBox("Description")
+
+    @Html.Label("Url de la imagen")
+    @Html.TextBox("Url")
+
+    @Html.Label("Observaciones")
+    @Html.TextBox("Info")
+
+    @Html.ActionLink("Submit","Advertisement","Announce")
+
+    
+</div>
+

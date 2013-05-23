@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "ShoppingCartExample";
+}
+
+<h2>ShoppingCartExample</h2>
+
+<form id="form1" runat="server">  
+    <script type="text/javascript">
+        
+        
+        $(document).ready(function () {
+           
+            // prepare the data
+            var source =
+            {
+                datatype: "json",
+                datafields: [
+                    { name: 'Quantity' },
+                    { name: 'Price' },
+                    { name: 'Description'}
+                ],
+                id: 'ProductId',
+                url: "ShoppingCartJson"
+            };
+
+            var dataAdapter = new $.jqx.dataAdapter(source, {
+                downloadComplete: function (data, status, xhr) { },
+                loadComplete: function (data) {
+
+                },
+                loadError: function (xhr, status, error) { }
+            });
+            $("#jqxgrid").jqxGrid(
+            {
+                editable: true,
+                editmode: 'click',
+                selectionmode: 'singlecell',
+                theme:'custom',
+                width: 670,
+                source: dataAdapter,
+                columns: [
+                  { text: 'Quantity', datafield: 'Quantity', columntype: 'numberinput', 
+                  initeditor: function (row, cellvalue, editor) {
+                      editor.jqxNumberInput({ decimalDigits: 0 });
+                    }
+                  },
+                  { text: 'Price', datafield: 'Price', width: 250, editable: false},
+                  { text: 'Description', datafield: 'Description', width: 250 },
+                  { text: 'Eliminar', columtype: 'button' }
+                ]
+            });
+        });
+    </script>
+
+    <div id='jqxWidget' style="font-size: 13px; font-family: Verdana; float: left;">
+        <div id="jqxgrid"></div>
+    </div>
+
+
+
+    <div class="container">  
+        <h1>My Store</h1>    
+        <div class="products">
+            <ul>
+                Shoes - <li>@Html.ActionLink("Add to cart", "AddShoesToCart", "Shopping")</li>
+                Shirt - <li>@Html.ActionLink("Add to cart", "AddShirtToCart", "Shopping")</li>
+                Pants - <li>@Html.ActionLink("Add to cart", "AddPantsToCart", "Shopping")</li>
+            </ul>
+        </div>
+        <ul><li>@Html.ActionLink("Ver Carrito", "Cart", "Shopping")</li></ul>
+    </div>
+</form>

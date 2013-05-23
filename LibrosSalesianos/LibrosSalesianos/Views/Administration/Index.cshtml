@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+
+
+    
+@*@Scripts.Render("~/Scripts/jtable/jquery.jtable.js")*@
+
+<h3>Bienvenido Administrador!</h3>
+
+<nav id="navAdmin" style="margin-left:19%">
+    <ul>
+        <li>@Ajax.ActionLink("Libros","TableBooks","Administration",new AjaxOptions{UpdateTargetId = "tableContainer"})</li>
+        <li>@Ajax.ActionLink("Pedidos Distribuidores","TableDistributorsOrders","Administration",new AjaxOptions{UpdateTargetId = "tableContainer"})</li>
+        <li>@Ajax.ActionLink("Pedidos Clientes","TableCustomerOrders","Administration",new AjaxOptions{UpdateTargetId = "tableContainer"})</li>
+    </ul>
+</nav>
+
+<div id="tableContainer"></div>

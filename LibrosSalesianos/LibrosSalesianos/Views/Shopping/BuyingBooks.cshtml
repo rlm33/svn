@@ -1,0 +1,32 @@
+﻿@model List<ClasesAlicanTeam.EN.ENNewBook>
+
+@{
+    ViewBag.Title = "BuyingBooks";
+    var books = Model;
+}
+
+<h3>Compra de libros</h3>
+<div class="cartItems">
+    @using (Html.BeginForm("BuyingBooksCourseFiltered", "Shopping", FormMethod.Get, new { enctype = "multipart/form-data" }))
+    {
+        <select id="courseFilter" name="courseFilter">
+            @using ClasesAlicanTeam.EN;
+            @{
+                var courses = (new ENCourse()).ReadAll();
+                foreach(var course in courses)
+                {
+                    <option value="@course.Id">@course.Name</option>
+                }        
+            }
+        </select>
+        <input type="submit" value="Filtrar por Curso" />
+    }
+    <div class="tables">
+        @{
+            foreach(var book in books)
+            {
+                @Html.Partial("_BookPartial", book)
+            }
+        }
+       </div>
+</div>

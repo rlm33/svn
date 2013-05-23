@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Admin - Pedidos";
+}
+
+<h3>Tablas Pedidos</h3>
+
+<div id="tableDistributorsOrders" style="margin-left:19%; margin-right:19%"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tableDistributorsOrders').jtable({
+            title: 'Pedidos de Clientes',
+            paging: false, //Enable paging
+            //pageSize: 10, //Set page size (default: 10)
+            sorting: false, //Enable sorting
+            //defaultSorting: 'Name ASC', //Set default sorting
+            actions: {
+                listAction: '/Administration/CustomerOrderList',
+                createAction: '/Administration/CustomerOrderCreate',
+                updateAction: '/Administration/CustomerOrderUpdate',
+                deleteAction: '/Administration/CustomerOrderDelete'
+            },
+            fields: {
+                Id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                //CHILD TABLE DEFINITION FOR "LINES"
+                Lines: {
+                    title: 'Detalle',
+                    width: '2%',
+                    sorting: false,
+                    edit: false,
+                    create: false,
+                    display: function (data) {
+                        //Create an image that will be used to open child table
+                        var $img = $('<img src="/Images/list_metro.png" title="Ver líneas del pedido" />');
+                        //Open child table when user clicks the image
+                        $img.click(function () {
+                            $('#tableDistributorsOrders').jtable('openChildTable',
+                                    $img.closest('tr'), //Parent row
+                                    {
+                                        title: ' - Líneas de Pedido ' + data.record.Id,
+                                        actions: {
+                                            listAction: '/Administration/CLinesList?OrderId=' + data.record.Id,
+                                            deleteAction: '/Administration/CLinesDelete',
+                                            updateAction: '/Administration/CLinesUpdate',
+                                            createAction: '/Administration/CLinesCreate'
+                                        },
+                                        fields: {
+                                            Id: {
+                                                key: true,
+                                                create: false,
+                                                edit: false,
+                                                list: false
+                                            },
+                                            IdCustomerOrder: {
+                                                type: 'hidden',
+                                                defaultValue: data.record.Id
+                                            },
+                                            NewBookId: {
+                                                title: 'Libro',
+                                                options: '/Administration/NewBooksOptions'
+                                            },
+                                            Quantity: {
+                                                title: 'Cantidad'
+                                            },
+                                            Total: {
+                                                title: 'Subtotal',
+                                                create: false,
+                                                edit: false
+                                            }
+                                        }
+                                    }, function (data) { //opened handler
+                                        data.childTable.jtable('load');
+                                    });
+                        });
+                        //Return image to show on the person row
+                        return $img;
+                    }
+                },
+                DataOrder: {
+                    title: 'Fecha',
+                    type: 'date'
+                },
+                CustomerId: {
+                    title: 'Cliente',
+                    options: '/Administration/CustomerOptions'
+                },
+                Status: {
+                    title: 'Estado',
+                    options: { 'P': 'Pendiente', 'C': 'Completado' }
+                },
+                Total: {
+                    title: 'Total',
+                    create: false,
+                    edit: false
+                }
+            }
+        });
+        $('#tableDistributorsOrders').jtable('load');
+    });
+</script>

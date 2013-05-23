@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+    @Scripts.Render("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+    @Scripts.Render("http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js")
+        
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxcore.js")
+    @Scripts.Render("~/Scripts/jtable/jquery.jtable.js")
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Colegio Salesianos</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/metroblue/jquery-ui.css")
+    @Styles.Render("~/Scripts/jtable/themes/metro/blue/jtable.css")
+    @Styles.Render("~/Scripts/widgets/jqwidgets/styles/jqx.base.css")
+    @Styles.Render("~/Scripts/widgets/jqwidgets/styles/custom.css")
+        
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxmenu.js")
+
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxscrollview.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxnavigationbar.js")
+
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxdatetimeinput.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxcalendar.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/globalization/globalize.js")
+
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxdata.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxscrollbar.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxlistbox.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxdropdownlist.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxgrid.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxbuttons.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxgrid.selection.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxgrid.edit.js")
+    @Scripts.Render("~/Scripts/widgets/jqwidgets/jqxnumberinput.js")
+        
+       
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+    @Scripts.Render("~/Scripts/modernizr-2.5.3.js")
+
+    @Scripts.Render("~/Scripts/flyToCart.js")
+
+    </head>
+    <body>
+        <header>
+            
+            <div class ="margen">
+            <div class="imagen-cabezera" style="text-align:center" >
+                <img src="~/Images/banner.jpg" style="width:62%"/>
+            </div>
+
+            <div style ="margin-right:19%">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+            </div>
+
+            <div id='content'>
+               
+                @Scripts.Render("~/Scripts/LoadMenu2.js")
+                <div id='jqxWidget'>
+                    <div id='jqxMenu', style="margin-left: 19%">
+                        <ul>
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Compra Libros","BuyingBooks","Shopping")</li>
+                            <li>@Html.ActionLink("Carrito","Cart","Shopping")</li>
+                            <li>@Html.ActionLink("Anuncios", "Advertisement", "Announce")</li>
+                           @* <li>@Html.ActionLink("Acerca de", "About", "Home")</li>*@
+                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Administracion", "Index", "Administration")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                </div>
+            
+        </header>
+        
+        @RenderSection("scripts", required: false)
+        <div id="body">
+            @RenderSection("featured", required: false)
+            @*<section class="content-wrapper main-content clear-fix">*@
+                @RenderBody()
+            @*</section>*@
+        </div>
+        
+        
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year  Powered by AlicanTeam</p>
+                </div>
+            </div>
+        </footer>
+
+        
+    </body>
+</html>

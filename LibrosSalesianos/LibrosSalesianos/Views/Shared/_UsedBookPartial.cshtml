@@ -1,0 +1,21 @@
+﻿@model ClasesAlicanTeam.EN.ENUsedBook
+@{
+    ViewBag.Title = "_UsedBookPartial";
+    var book = Model;
+}
+
+<div id="Book-@book.IdBook">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <a><img style="height:150px" src="@book.Picture" /></a>
+                </td>
+                <td rowspan="2">
+                    <div> @Html.Label("desc",book.Description) </div>
+                    <div class="isbn">@Html.Label("isbn",book.IdBook)</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

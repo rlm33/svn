@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClasesAlicanTeam", "ClasesAlicanTeam\ClasesAlicanTeam.csproj", "{D84AAC3A-7C81-4B9A-9074-F0188188B4F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrosSalesianos", "LibrosSalesianos\LibrosSalesianos\LibrosSalesianos.csproj", "{B6669FB2-CABD-47D6-932C-A24A8F4528FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCAD", "TestCAD\TestCAD.csproj", "{32085C13-9CCC-4809-8FDE-0696A12921F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D84AAC3A-7C81-4B9A-9074-F0188188B4F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D84AAC3A-7C81-4B9A-9074-F0188188B4F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D84AAC3A-7C81-4B9A-9074-F0188188B4F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D84AAC3A-7C81-4B9A-9074-F0188188B4F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6669FB2-CABD-47D6-932C-A24A8F4528FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6669FB2-CABD-47D6-932C-A24A8F4528FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6669FB2-CABD-47D6-932C-A24A8F4528FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6669FB2-CABD-47D6-932C-A24A8F4528FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32085C13-9CCC-4809-8FDE-0696A12921F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32085C13-9CCC-4809-8FDE-0696A12921F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32085C13-9CCC-4809-8FDE-0696A12921F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32085C13-9CCC-4809-8FDE-0696A12921F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

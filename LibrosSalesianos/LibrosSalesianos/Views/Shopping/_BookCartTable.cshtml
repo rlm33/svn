@@ -1,0 +1,53 @@
+﻿@model LibrosSalesianos.Models.CartItem
+@{
+    ViewBag.Title = "_BookPartial";
+    var item = Model;
+}
+
+<table class ="table">
+    <tbody>
+        <tr>
+            <td class="thumb">
+                <a href="#">
+                    <img style="height:150px" src="@item.Image" title="@item.Description"/>
+                </a>
+            </td>
+            <td class="description">
+                <a href="#">
+                    @item.Description
+                </a>
+            </td>
+            <td class="quantity">
+                <script>
+                    function reload() { location.reload(); }
+                    function refreshQtyAndSubtotalFor(isbn, unitPrice) {
+                        var qty = $('#Qty-'+isbn).val();
+                        if (qty <= 0) {
+                            $.post('RemoveFromCart?isbn=' + isbn).done(reload);
+                        }
+                        else {
+                            var floatUnitPrice = parseFloat(unitPrice.replace(',', '.'));
+                            $('#Subtotal-'+isbn).html((parseFloat(qty) * floatUnitPrice).toFixed(2) + " €");
+                            $.post('SetQuantityItem?isbn=' + isbn + '&quantity=' + qty);
+                            var total = 0.0;
+                            $.each($('.subtotal'), function (i, td) {
+                                total += parseFloat($(td).html().replace(',', '.'));
+                            });
+                            $('#summaryTotalWithoutTax').html((total * 100 / 118).toFixed(2) + " €");
+                            $('#summaryTotalTax').html((total * 18 / 118).toFixed(2) + " €");
+                            $('#summaryTotal :first-child').html(total.toFixed(2) + " €");
+                        }
+                    }
+                </script>
+                <input type="number" id="Qty-@item.BookIsbn" name="Qty" min="1" value= "@item.Quantity" onchange="refreshQtyAndSubtotalFor('@item.BookIsbn','@item.UnitPrice');" />
+            </td>
+            <td class="price">@item.UnitPrice.ToString("0.00") €</td>
+            <td class="subtotal" id="Subtotal-@item.BookIsbn">@item.TotalPrice.ToString("0.00") €</td>
+            <td class="remove">
+                <div class="linkbutton">
+                    @Html.ActionLink("Remove", "RemoveFromCart", new { controller = "Shopping", id = @item.Book.Id }, new { @class = "removecart" })
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
