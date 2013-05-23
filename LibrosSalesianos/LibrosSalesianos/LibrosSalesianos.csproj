@@ -276,13 +276,13 @@
     <Content Include="Images\anuncio3.jpg" />
     <Content Include="Images\banner.jpg" />
     <Content Include="Images\carrito.gif" />
+        <Content Include="Images\removecarrito.gif />
     <Content Include="Images\banner2.jpg" />
     <Content Include="Images\Filosofia-3.jpg" />
     <Content Include="Images\imageNature7.jpg" />
     <Content Include="Images\list_metro.png" />
     <Content Include="Images\ordenar-ahora.png" />
     <Content Include="Images\portada kiwi.jpg" />
-    <Content Include="Images\removecarrito.gif" />
     <Content Include="jquery.jtable.js" />
     <Content Include="jquery.jtable.min.js" />
     <Content Include="Scripts\flyToCart.js" />
